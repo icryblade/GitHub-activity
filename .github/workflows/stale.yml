@@ -21,3 +21,11 @@ jobs:
           git pull --rebase
           git commit --allow-empty -m "使用您的 GitHub 活动数据作为开发人员活动的度量"
           git push
+      - name: Release
+        if: ${{ github.event.inputs.release != 'none' }}
+        uses: ncipollo/release-action@v1.13.0
+        with:
+          artifacts: "**/*.txt"
+          prerelease: ${{ github.event.inputs.release == 'pre-release' }}
+          makeLatest: ${{ github.event.inputs.release == 'release' }}
+          tag: version.txt
