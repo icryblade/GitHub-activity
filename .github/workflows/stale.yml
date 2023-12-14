@@ -28,4 +28,5 @@ jobs:
           artifacts: "**/*.txt"
           prerelease: ${{ github.event.inputs.release == 'pre-release' }}
           makeLatest: ${{ github.event.inputs.release == 'release' }}
+          allowUpdates: "true"
           tag: version.txt
