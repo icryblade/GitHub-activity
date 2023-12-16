@@ -15,8 +15,8 @@ jobs:
 
       - name: GitHub activity
         run: |
-          git config --local user.icryblade@gmail.com "${{ secrets.USER_EMAIL }}"
-          git config --local user.icryblade "${{ secrets.USER_NAME }}"
+          git config --local user.email "${{ secrets.USER_EMAIL }}"
+          git config --local user.name "${{ secrets.USER_NAME }}"
           git remote set-url origin https://${{ github.actor }}:${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }}
           git pull --rebase
           git commit --allow-empty -m "使用您的 GitHub 活动数据作为开发人员活动的度量"
